@@ -1,0 +1,5 @@
+INSERT + DELETE             -> 0 bytes
+UPDATE B + UPDATE A        -> 0 bytes
+INSERT + UPDATE + DELETE   -> 0 bytes
+DELETE + INSERT A          -> 0 bytes
+UPDATE A -> A              -> 0 bytes
