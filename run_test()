@@ -1,0 +1,66 @@
+    failures += run_test(
+        1,
+        "INSERT",
+        "INSERT INTO t VALUES(2,'B');"
+    );
+
+    failures += run_test(
+        2,
+        "UPDATE",
+        "UPDATE t SET value='AA' WHERE id=1;"
+    );
+
+    failures += run_test(
+        3,
+        "DELETE",
+        "DELETE FROM t WHERE id=1;"
+    );
+
+    failures += run_test(
+        4,
+        "INSERT_DELETE",
+        "INSERT INTO t VALUES(2,'B');"
+        "DELETE FROM t WHERE id=2;"
+    );
+
+    failures += run_test(
+        5,
+        "UPDATE_UPDATE",
+        "UPDATE t SET value='B' WHERE id=1;"
+        "UPDATE t SET value='C' WHERE id=1;"
+    );
+
+    failures += run_test(
+        6,
+        "INSERT_UPDATE",
+        "INSERT INTO t VALUES(2,'B');"
+        "UPDATE t SET value='BB' WHERE id=2;"
+    );
+
+    failures += run_test(
+        7,
+        "UPDATE_RETURN",
+        "UPDATE t SET value='B' WHERE id=1;"
+        "UPDATE t SET value='A' WHERE id=1;"
+    );
+
+    failures += run_test(
+        8,
+        "INSERT_UPDATE_DELETE",
+        "INSERT INTO t VALUES(2,'B');"
+        "UPDATE t SET value='BB' WHERE id=2;"
+        "DELETE FROM t WHERE id=2;"
+    );
+
+    failures += run_test(
+        9,
+        "DELETE_REINSERT",
+        "DELETE FROM t WHERE id=1;"
+        "INSERT INTO t VALUES(1,'A');"
+    );
+
+    failures += run_test(
+        10,
+        "UPDATE_SAME_VALUE",
+        "UPDATE t SET value='A' WHERE id=1;"
+    );
